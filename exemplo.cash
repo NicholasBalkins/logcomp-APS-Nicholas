@@ -1,0 +1,24 @@
+programa CaixaDoNicholas;
+
+inicio
+  var tentativas: inteiro = 0;
+  var ok: booleano;
+
+  ler_pin(tentativas);
+  mensagem(1);
+
+  se (cartao_inserido() e nao (tentativas == 3)) inicio
+    se (saldo() > 0) inicio
+      sacar(50);
+    fim
+    senao inicio
+      mensagem(2);
+    fim
+  fim
+
+  enquanto (tentativas < 3) inicio
+    tentativas = tentativas + 1;
+  fim
+
+  ejetar_cartao();
+fim
